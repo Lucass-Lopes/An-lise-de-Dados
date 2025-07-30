@@ -13,16 +13,16 @@ app.title = "Análise de E-commerce"
 
 # Gráfico de Dispersão: Avaliações vs Quantidade Vendida
 scatter_fig = px.scatter(
-    df, x='N_Avaliacoes', y='Qtd_Vendidos',
+    df, x='N_Avaliações', y='Qtd_Vendidos',
     title='Dispersão: Avaliações vs Quantidade Vendida',
-    labels={'N_Avaliacoes': 'Número de Avaliações', 'Qtd_Vendidos': 'Quantidade Vendida'}
+    labels={'N_Avaliações': 'Número de Avaliações', 'Qtd_Vendidos': 'Quantidade Vendida'}
 )
 
 # Gráfico de Regressão: Nota Média vs Quantidade Vendida
 reg_fig = px.scatter(
-    df, x='Nota_Media', y='Qtd_Vendidos', trendline='ols',
-    title='Regressão: Nota Média vs Quantidade Vendida',
-    labels={'Nota_Media': 'Nota Média', 'Qtd_Vendidos': 'Quantidade Vendida'}
+    df, x='Nota', y='Qtd_Vendidos', trendline='ols',
+    title='Regressão: Nota vs Quantidade Vendida',
+    labels={'Nota': 'Nota Média', 'Qtd_Vendidos': 'Quantidade Vendida'}
 )
 
 # Gráfico de Barras: Quantidade Vendida por Categoria
@@ -41,8 +41,9 @@ pizza_fig = px.pie(
 
 # Gráfico de Densidade: Distribuição da Nota Média
 density_fig = px.histogram(
-    df, x='Nota_Media', nbins=20, marginal='rug',
+    df, x='Nota', nbins=20, marginal='rug',
     title='Distribuição da Nota Média'
+    labels ={'Nota' : 'Nota'}
 )
 
 # Layout da aplicação
