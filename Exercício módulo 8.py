@@ -42,7 +42,7 @@ pizza_fig = px.pie(
 # Gráfico de Densidade: Distribuição da Nota Média
 density_fig = px.histogram(
     df, x='Nota', nbins=20, marginal='rug',
-    title='Distribuição da Nota Média'
+    title='Distribuição da Nota Média',
     labels ={'Nota' : 'Nota'}
 )
 
