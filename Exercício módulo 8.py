@@ -3,8 +3,30 @@ import dash
 from dash import dcc, html
 import plotly.express as px
 
+# Função para converter strings como '+10mil' em números, sei que existem outras formas de fazer o mesmo.
+def texto_para_num(valor):
+    if isinstance(valor, str):
+        valor = valor.lower().replace('+', '').strip()
+        if 'mil' in valor:
+            valor = valor.replace('mil', '').strip()
+            try:
+                return float(valor) * 1000
+            except:
+                return None
+        else:
+            try:
+                return float(valor)
+            except:
+                return None
+    return valor
+
 # Carregamento dos dados
 df = pd.read_csv("ecommerce_estatistica.csv")
+
+# Aplica a limpeza na coluna 'Qtd_Vendidos' com a função criada
+df['Qtd_Vendidos'] = df['Qtd_Vendidos'].apply(texto_para_num)
+
+# Remove valores ausentes e inválidos
 df.dropna(inplace=True)
 
 # Inicializa a aplicação Dash
